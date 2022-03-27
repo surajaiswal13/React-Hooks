@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import ResourceList from './ResourceList';
+import Users from './Users';
 
 // class App extends React.Component {
 //   state = {
@@ -24,6 +25,7 @@ const App = () => {
   
       return (
         <React.Fragment>
+          <Users />
           <button onClick={() => setResourceName('posts')}>Posts</button>
           <button onClick={() => setResourceName('todos')}>Todos</button>
           <ResourceList resourceName={resourceName}/>

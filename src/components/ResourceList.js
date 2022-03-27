@@ -40,10 +40,6 @@ const ResourceList = (props) => {
 
   return (
     <ul>
-      {/* {resources.map(resource => (
-        <li key={resource.id}>{resource.title}</li>
-        ))} */}
-
       {
         resources.map(resource => (
           <li key={resource.id} >{resource.title}</li>
