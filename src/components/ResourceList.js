@@ -31,8 +31,10 @@ import axios from 'axios';
 //   }
 // }
 
-const ResourceList = (props) => {
+// Custom Hooks
 
+const useResources = (resourceName) => {
+  
   const [ resources, setResources ] = useState([]);
 
   const fetchResources = async (resourceName) => {
@@ -41,10 +43,21 @@ const ResourceList = (props) => {
     setResources(response.data );
   }
 
-  useEffect(() => {
-    fetchResources(props.resourceName)
-  }, [props.resourceName])
+  // useEffect is Replacement for LifeCycle Method will call api whenever resourceName is Updated and for first time render
 
+  useEffect(() => {
+    fetchResources(resourceName)
+  }, [resourceName])
+
+  // custom Hooks return somethings
+  return resources
+
+}
+
+const ResourceList = (props) => {
+
+  // Using Custom Hooks here in the Component
+  const resources = useResources(props.resourceName)
 
   return (
     <ul>
